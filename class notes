@@ -1,0 +1,107 @@
+// int: variable type used to define numeric variables holding whole numbers
+        suited for storing integers
+  
+        - this converts an int to a string
+        int a = 10;
+        char *intStr = itoa(a);
+        string str = string(intStr);
+        
+// const int: good for declaring "magic numbers or numbers that should be constant
+              ex: HoursPerDay = 24;
+
+// double: suited for storing numbers with fraction parts
+        - double x = 0.5
+        - when dividing, as long as one of the types is double
+          then an int divided by a double will have double division
+           
+// unsigned int: useful data type for storing numbers that are not less than 0 
+           
+// bool: boolean, returns true or false statements
+        --> cout << boolalpha 
+        --> bool b;
+            b = false;
+            cout << b << endl;
+            b = true;
+            cout << b << endl;
+            - this command makes printing booleans nicer
+          
+// char: stores a single variable 
+        --> char x = 'a';
+        
+// math operations: remember to #include <cmath>
+        --> remainder: %
+            int c = 90;
+            int d = 7;
+            cout << c << " divided by " << d << " is " << c/d << " remainder " << c%d << endl;
+        --> pow(2,14)
+        --> sqrt(9)
+        --> cos(0)
+            
+        --> setprecision(3) would set how many decimals places there would be
+        
+// cin
+        --> cin.ignore() allows user to enter the next input by ignoring /n in the buffer
+        
+        
+// 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
