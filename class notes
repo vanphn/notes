@@ -1,63 +1,200 @@
-// int: variable type used to define numeric variables holding whole numbers
-        suited for storing integers
-  
-        - this converts an int to a string
+#include <string>
+
+//  INT: variable type used to define numeric variables holding whole numbers suited for storing integers
+    int i; // declaring a variable, i is an int
+    int i = 2 // assigns and declare simultaneously
+
+    // we can also increase int by increments
+        int IncrementBy20 = i+=20
+        int IncrementBy1 = i++ // i++ is a shortcut for increment by 1
+        int prePlusPlus = ++i // first increment i, then assign the new value of i
+        int postPlusPlus = i++ // first assign current value of i, then increment i
+
+    // this converts an int to a string
         int a = 10;
         char *intStr = itoa(a);
         string str = string(intStr);
         
-// const int: good for declaring "magic numbers or numbers that should be constant
-              ex: HoursPerDay = 24;
+    // const int: good for declaring "magic numbers or numbers that should be constant
+        const int HoursPerDay = 24;
 
-// double: suited for storing numbers with fraction parts
-        - double x = 0.5
-        - when dividing, as long as one of the types is double
-          then an int divided by a double will have double division
+// DOUBLE: suited for storing numbers with fraction parts
+        double x = 0.5
+        // when dividing, as long as one of the types is double then an int divided by a double will have double division
            
-// unsigned int: useful data type for storing numbers that are not less than 0 
+// UNSIGNED INT: useful data type for storing numbers that are not less than 0
            
-// bool: boolean, returns true or false statements
-        --> cout << boolalpha 
-        --> bool b;
+// BOOL: boolean, returns true or false statements
+    // true is 1 and false is 0
+        cout << boolalpha
+        bool b;
             b = false;
             cout << b << endl;
             b = true;
             cout << b << endl;
-            - this command makes printing booleans nicer
+        // this command makes printing booleans nicer
           
-// char: stores a single variable 
-        --> char x = 'a';
+// CHAR: stores a single variable
+        char x = 'a';
         
-// math operations: remember to #include <cmath>
-        --> remainder: %
+// MATH OPERATIONS: #include <cmath>
+        // modulus function %
             int c = 90;
             int d = 7;
             cout << c << " divided by " << d << " is " << c/d << " remainder " << c%d << endl;
-        --> pow(2,14)
-        --> sqrt(9)
-        --> cos(0)
-            
-        --> setprecision(3) would set how many decimals places there would be
+            pow(2,14)
+            sqrt(9)
+            cos(0)
+            setprecision(3) // set how many decimals places there would be
         
-// cin
-        --> cin.ignore() allows user to enter the next input by ignoring /n in the buffer
-        
-        
-// 
+// CIN
+    // cin.ignore() allows user to enter the next input by ignoring /n in the buffer
+        int i;
+        string a;
+        cout << "Type an integer: ";
+        cin >> i;
+        cout << "Say another sentence, and I'll repeat it." << endl;
+        // The following line will ignore the "\n" in the buffer.
+        cin.ignore();
+        getline(cin, sentence);
+        cout << sentence << endl << endl;
+
+// STRINGS #include <string>
+    // use substr to extract bits of a string
+        string nameofstring = "pic10a";
+        cout << nameofstring.length() << endl;
+        cout << nameofstring.substr(8) << endl; // starts at the 8th character and goes to the end
+        cout << nameofstring.substr(8,3) << endl; // starts at the 8th character of s an take the next 3 character
+
+    // to search for string
+        string.find()
+        EX:
+        word = "banana";
+        cout << word.find("an") << endl;
+        // returns the index of where the letter is found
+
+        // rfind searches from the right while find searches from the left
+        string.rfind()
+        cout << word.rfind("an") << endl;
+    
+    // to access individual characters of strings.
+        int j = 4; // Should really use size_t.
+        cout << "The " << j << "-th  letter of "
+         << firstName << " is " << firstName[j] << "." << endl;
+
+        // firstName.length()-1 indexes the last letter.
+        cout << "The last  letter of "
+        << firstName << " is " << firstName[firstName.length()-1] << "." << endl << endl;
+
+// SIZE_T #include <cstring>
+    // size_t can store 8 bytes
+    // int length gives warning: implicit conversion loses integer precision
+    // use size_t type instead of int. store bigger number with size_t
+        string input; cin >> input;
+        size_t length = input.length();
+
+// IF STATEMENT
+    // Here's a simple one to give you an idea of what they're for.
+        int i;
+        cout << "type an integer: "; cin >> i;
+        cout << "the absolute value of " << i << " is ";
+        if (i >= 0) {cout <<  i << endl;}
+        else {cout << -i << endl;}
+        cout << endl;
+
+    // here's a code that tells whether a year is a leap year
+        int year; cin >> year;
+        if ( ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+            cout << year << " is a leap year" << endl;}
+        else {
+            cout << year << " is not a leap year" << endl;}
+        // && = AND
+        // || = OR
+        // != = NOT EQUAL
+
+    // here's a code that tells you your grade using else if statements
+        int score ; cin >> score;
+        char grade;
+
+        if (score >= 90) {grade = 'A';}
+        else if (score >= 80) {grade = 'B';}
+        else if (score >= 70) {grade = 'C';}
+        else {grade = 'D';}
+        cout << "your grade is: " << grade << endl;
+        // note: declaration in braces have local scope. Better to declare them outside.
+
+// WHILE LOOPS
+    int number = 0;
+     
+    // this gives an example of how the while loop works
+     while (number <= 5) {
+         cout << "the number is " << number << endl;
+         number++;
+     }
+     
+     // We are free to type "while (true) {}".
+          while (true) {
+              cout << "this looks really dangerous!" << endl;
+              cout << "there is no way for the while loop to BREAK" << endl;
+              cout << "unless... 00" << endl;
+              break;
+          }
+          cout << "!! - the \"break\" statement got us out of the while loop" << endl << endl;
+
+// FOR LOOP
+    // lets say we want to sum numbers from 1 to N
+    // it's easier to use for loop rather than while loops
+    // since we perform the same operation during each iteration of the loop
+
+    // follow the syntax:
+    // for (declare / initialize a variable; "keep going" condition; how to update) {}
+        cout << "enter an integer N and ill find its sum from 1 to N" << endl;
+        int N; cin >> N;
+        int sum = 0;
+        for (int j = 1; j <= N; ++j) {
+            sum += j;
+        }
+        cout << "the sum of the integers from 1 to N is " << sum << endl;
+
+    // use for loops when you know your code should run for fixed numbers of time
+    // and use while loops when the "keep going" condition is more complicated
+
+// CIN.FAIL
+    // cin.fail() == true, when an input failure occurs. for example;
+
+        cout << "enter any integer with spaces in between" << endl;
+
+        while (true) {
+            int integer; cin >> integer;
+            if (cin.fail()) {
+                cout << endl;
+                cout << "cin.fail() returns a boolean that is true" << endl;
+                cout << "you entered something other than integer and spaces" << endl;
+                cout << "this caused cin to enter a fail-state" << endl;
+                cout << "we will now break from the loop" << endl << endl;
+                break;
+            }
+            cout << integer << endl;
+        }
+
+        cout << "we're now outside the while loop" << endl;
+        cout << "cin.fail() == " << cin.fail() << endl;
+    // if the cin fails then the input buffer is put into an error state
+
+    // cin.clear() is necessary to clear the error state of the buffer so further processing can take place
+        cin.clear();
+
+    // getline stores the error and outputs it
+        string error; getline(cin, error);
+        cout << "what caused the fail-state? and what was typed after it:" << endl;
+        cout << error << endl << endl;
+
+
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+   
             
             
             
